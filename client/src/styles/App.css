@@ -1,0 +1,63 @@
+@import './reset.css';
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#sidebar,
+#content {
+	padding: 2em;
+}
+
+#header {
+	grid-area: header;
+}
+
+#sidebar {
+	background-color: #4d62d7;
+	grid-area: sidebar;
+}
+
+#content {
+	background-color: #f9f9f9;
+	grid-area: main;
+}
+
+#url-wrapper {
+	background-color: white;
+}
+
+#history-wrapper {
+	background-color: white;
+}
+
+/* MOBILE FIRST */
+
+#body {
+	font-family: Helvetica;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+/* THEN DESKTOP */
+@media (min-width: 700px) {
+	#body {
+		display: grid;
+		grid: 10% auto 10% / minmax(200px, 1fr) minmax(400px, 4fr);
+		/* grid-gap: 20px; */
+		grid-template-areas:
+			'sidebar header'
+			'sidebar main'
+			'sidebar main';
+	}
+}
