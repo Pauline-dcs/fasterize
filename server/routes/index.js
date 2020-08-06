@@ -48,7 +48,8 @@ router.get('', (req, res) => {
 		})
 		.catch((err) => {
 			console.log(err);
-			res.status(400).json(err);
+			//200 because my request was successfull, the problem is in the other connection
+			res.status(200).json(err);
 		});
 });
 

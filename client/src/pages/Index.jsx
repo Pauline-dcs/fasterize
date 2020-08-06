@@ -42,7 +42,9 @@ const Index = () => {
 						},
 					]);
 				})
-				.catch((apiErr) => console.log(apiErr));
+				.catch((apiErr) => {
+					console.log(apiErr);
+				});
 		}
 	};
 
