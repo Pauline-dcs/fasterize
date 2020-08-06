@@ -1,12 +1,12 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Home from './pages/Home';
+import Index from './pages/Index';
 
 function App() {
 	return (
 		<div className="App">
 			<Switch>
-				<Route exact to="/" component={Home} />
+				<Route exact to="/" component={Index} />
 			</Switch>
 		</div>
 	);

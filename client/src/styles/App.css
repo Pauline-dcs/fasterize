@@ -16,8 +16,23 @@ body {
 	padding: 2em;
 }
 
+.icons-square {
+	color: #84c3bc;
+	font-size: 40px;
+	margin-right: 10px;
+}
+
 #header {
 	grid-area: header;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+#header>h2 {
+	color: #5a7ee1;
+	font-size: 20px;
 }
 
 #sidebar {
@@ -28,14 +43,101 @@ body {
 #content {
 	background-color: #f9f9f9;
 	grid-area: main;
+	margin-bottom: 30px;
+}
+
+#content h2 {
+	color: #a4a4a4;
+	font-size: 17px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+
+
+}
+
+#content section:first-child {
+
+	margin-bottom: 40px;
+}
+
+#url-input {
+	width: 500px;
+	height: 40px;
+	border: 1px solid #a5b9df;
+	border-radius: 5px;
+}
+
+#button-analysis {
+	font-size: 15px;
+	margin-left: 20px;
+	padding: 10px;
+	border: 0;
+	border-radius: 5px;
+	background-color: #4d62d7;
+	color: white;
+
 }
 
 #url-wrapper {
 	background-color: white;
+
 }
 
-#history-wrapper {
+
+#plugged-optimisee-cloud {
+	color: #7bb239;
+}
+
+#plugged-cloud {
+	color: orange;
+}
+
+#unplugged {
+	color: red;
+}
+
+#table-tbody {
 	background-color: white;
+	padding: 10px;
+}
+
+
+
+#table {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: center;
+	text-align: center;
+}
+
+#table td,
+th {
+
+	text-align: center;
+	padding-right: 50px;
+}
+
+#table tr {
+	margin: 20px;
+}
+
+#flag-keyword {
+	border: 1px solid #4167f7;
+	background-color: #4167f7;
+	color: white;
+
+}
+
+#cloudfront-status {
+	border: 1px solid #bf2926;
+	color: white;
+	background-color: #bf2926;
+	border-radius: 20px;
+	font-size: 15px;
+
 }
 
 /* MOBILE FIRST */
