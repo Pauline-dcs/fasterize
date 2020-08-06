@@ -17,7 +17,6 @@ function useStickyState(defaultValue, key) {
 }
 
 const Index = () => {
-	// const initialState = () => Object(localStorage.getItem('apiObject')) || {};
 	const [apiCalls, setApiCalls] = useStickyState([], 'apiCalls');
 
 	const [url, setUrl] = useState('');
@@ -52,7 +51,7 @@ const Index = () => {
 
 			<div id="sidebar">
 				<img
-					src="/images/logo_fasterize.png"
+					src="/images/logo-fasterize.png"
 					alt="fasterize logo"
 					id="fasterize-logo"
 				/>
