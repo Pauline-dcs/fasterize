@@ -30,6 +30,7 @@ body {
 	align-items: center;
 	justify-content: center;
 
+
 }
 
 #header>h2 {
@@ -42,13 +43,10 @@ body {
 	grid-area: sidebar;
 }
 
-
-
-
 #content {
 	background-color: #f9f9f9;
 	grid-area: main;
-	margin-bottom: 30px;
+
 }
 
 #content h2 {
@@ -81,25 +79,43 @@ body {
 	border-radius: 5px;
 	background-color: #4167f7;
 	color: white;
+	cursor: pointer;
 
 }
 
 #url-wrapper {
 	background-color: white;
+	padding: 20px;
 
 }
 
+#url-wrapper>h4 {
+	color: #383838;
+}
+
+#icon-clear-data {
+	color: #bf2926;
+	margin-right: 10px;
+	cursor: pointer;
+}
+
+#span-clear {
+	color: #bf2926;
+}
 
 #plugged-optimisee-cloud {
 	color: #7bb239;
+	font-size: 40px;
 }
 
 #plugged-cloud {
 	color: orange;
+	font-size: 40px;
 }
 
 #unplugged {
 	color: red;
+	font-size: 40px;
 }
 
 #table-tbody {
@@ -108,31 +124,28 @@ body {
 }
 
 
-
 #table {
 	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: stretch;
-	justify-content: center;
-	text-align: center;
+	color: #919191;
+	border-spacing: 0;
+
+
 }
 
 #table td,
 th {
-
-	text-align: left;
-	padding-right: 50px;
+	padding: 10px;
+	text-align: center;
 }
 
-#table tr {
-	margin: 20px;
-}
 
-#flag-keyword {
+
+#span-flag {
 	border: 1px solid #4167f7;
 	background-color: #4167f7;
 	color: white;
+	margin-right: 10px;
+	padding: 3px;
 
 }
 
@@ -140,8 +153,10 @@ th {
 	border: 1px solid #bf2926;
 	color: white;
 	background-color: #bf2926;
-	border-radius: 20px;
+	border-radius: 30px;
+	padding: 5px;
 	font-size: 15px;
+
 
 }
 

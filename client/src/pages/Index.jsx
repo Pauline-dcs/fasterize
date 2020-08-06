@@ -3,7 +3,11 @@ import axios from 'axios';
 // import apiHandler from '../api/apiHandler';
 import '../styles/App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquare, faCloud } from '@fortawesome/free-solid-svg-icons';
+import {
+	faSquare,
+	faCloud,
+	faTimesCircle,
+} from '@fortawesome/free-solid-svg-icons';
 
 function useStickyState(defaultValue, key) {
 	const [value, setValue] = useState(() => {
@@ -25,7 +29,14 @@ const Index = () => {
 		axios
 			.get(`/api/?url=${url}`)
 			.then((apiResponse) => {
-				setApiCalls([...apiCalls, apiResponse.data]);
+				setApiCalls([
+					...apiCalls,
+					{
+						...apiResponse.data,
+						url: url,
+						date: new Date().toLocaleDateString(),
+					},
+				]);
 			})
 			.catch((apiErr) => console.log(apiErr));
 	};
@@ -40,8 +51,10 @@ const Index = () => {
 		}
 	};
 
-	console.log(apiCalls);
-	console.log(url);
+	const handleClear = () => {
+		window.localStorage.clear();
+		setApiCalls([...apiCalls, {}]);
+	};
 
 	return (
 		<div id="body">
@@ -83,7 +96,14 @@ const Index = () => {
 					<h2>
 						<FontAwesomeIcon icon={faSquare} className="icons-square" /> HISTORY
 					</h2>
-
+					<span id="span-clear">
+						<FontAwesomeIcon
+							icon={faTimesCircle}
+							id="icon-clear-data"
+							onClick={handleClear}
+						/>
+						Clear data
+					</span>
 					<table id="table">
 						<thead>
 							<tr>
@@ -95,23 +115,35 @@ const Index = () => {
 								<th>Cloudfront pop</th>
 							</tr>
 						</thead>
-						{apiCalls.map((call) => (
-							<tbody id="table-tbody">
+						<tbody id="table-tbody">
+							{apiCalls.map((call) => (
 								<tr>
-									<td>put the date</td>
-									<td>{url}</td>
+									<td>{call.date}</td>
+									<td>{call.url}</td>
 									<td>{cloudStatus(call)}</td>
-									{call.fstrzFlags &&
-										call.fstrzFlags.map((flag, index) => (
-											<td id="flag-keyword" key={index}>
-												{flag}
-											</td>
-										))}
-									<td id="cloudfront-status">{call.cloudfrontStatus}</td>
-									<td>{call.cloudfrontPOP}</td>
+									<td id="flag-keyword">
+										{call.fstrzFlags &&
+											call.fstrzFlags.map((flag, index) => (
+												<span key={index} id="span-flag">
+													{flag}
+												</span>
+											))}
+									</td>
+
+									<td>
+										{call.cloudfrontStatus && (
+											<span id="cloudfront-status">
+												{call.cloudfrontStatus}
+											</span>
+										)}
+									</td>
+
+									<td>
+										{call.cloudfrontPOP && <span>{call.cloudfrontPOP}</span>}
+									</td>
 								</tr>
-							</tbody>
-						))}
+							))}
+						</tbody>
 					</table>
 				</section>
 			</div>
