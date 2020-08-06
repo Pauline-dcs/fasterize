@@ -39,7 +39,7 @@ const parsedHeaders = async (headers) => {
 	return { plugged };
 };
 
-router.get('/', (req, res) => {
+router.get('', (req, res) => {
 	let url = req.query.url;
 	axios
 		.get(url)
@@ -48,6 +48,7 @@ router.get('/', (req, res) => {
 		})
 		.catch((err) => {
 			console.log(err);
+			res.status(400).json(err);
 		});
 });
 

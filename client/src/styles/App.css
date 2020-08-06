@@ -160,6 +160,13 @@ th {
 
 }
 
+.error-message {
+	/* background-color: rgba(255, 0, 0, 0.842); */
+	color: red;
+	padding: 10px;
+	border-radius: 10px;
+}
+
 /* MOBILE FIRST */
 
 #body {

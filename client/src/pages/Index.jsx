@@ -22,23 +22,28 @@ function useStickyState(defaultValue, key) {
 
 const Index = () => {
 	const [apiCalls, setApiCalls] = useStickyState([], 'apiCalls');
-
 	const [url, setUrl] = useState('');
+	const [errorMessage, setErrorMessage] = useState('');
 
 	const handleClick = () => {
-		axios
-			.get(`/api/?url=${url}`)
-			.then((apiResponse) => {
-				setApiCalls([
-					...apiCalls,
-					{
-						...apiResponse.data,
-						url: url,
-						date: new Date().toLocaleDateString(),
-					},
-				]);
-			})
-			.catch((apiErr) => console.log(apiErr));
+		if (!url) {
+			setErrorMessage('*Please enter a valid url');
+		} else {
+			setErrorMessage('');
+			axios
+				.get(`/api/?url=${url}`)
+				.then((apiResponse) => {
+					setApiCalls([
+						...apiCalls,
+						{
+							...apiResponse.data,
+							url: url,
+							date: new Date().toLocaleDateString(),
+						},
+					]);
+				})
+				.catch((apiErr) => console.log(apiErr));
+		}
 	};
 
 	const cloudStatus = (call) => {
@@ -53,7 +58,7 @@ const Index = () => {
 
 	const handleClear = () => {
 		window.localStorage.clear();
-		setApiCalls([...apiCalls, {}]);
+		setApiCalls([]);
 	};
 
 	return (
@@ -84,11 +89,18 @@ const Index = () => {
 							onChange={(e) => setUrl(e.target.value)}
 							name="url"
 							id="url-input"
-							type="text"
+							type="url"
+							required
 						/>
-						<button type="submit" id="button-analysis" onClick={handleClick}>
-							LAUNCH ANALYSIS
-						</button>
+						<>
+							<button type="submit" id="button-analysis" onClick={handleClick}>
+								LAUNCH ANALYSIS
+							</button>
+							{/* !! to covert as boolean */}
+							{!!errorMessage && (
+								<span className="error-message">{errorMessage}</span>
+							)}
+						</>
 					</div>
 				</section>
 
@@ -116,8 +128,8 @@ const Index = () => {
 							</tr>
 						</thead>
 						<tbody id="table-tbody">
-							{apiCalls.map((call) => (
-								<tr>
+							{apiCalls.map((call, index) => (
+								<tr key={index}>
 									<td>{call.date}</td>
 									<td>{call.url}</td>
 									<td>{cloudStatus(call)}</td>
