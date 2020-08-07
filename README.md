@@ -2,10 +2,6 @@
 
 ## Server side 
 
-## Requirements
-
-For development, you will only need Node.js and a node global package, Npm , installed in your environement.
-
 ## Install
 
     $ git clone https://github.com/Pauline-dcs/fasterize
@@ -29,12 +25,11 @@ For development, you will only need Node.js and a node global package, Npm , ins
 	"nodemon": "^2.0.4"
     
 ## Dev Dependencies 
-    
-    	"chai": "^4.2.0",
+
+	"chai": "^4.2.0",
 	"chai-http": "^4.3.0",
  	"mocha": "^8.1.1"
-    
-    
+
 
 ## Client side 
 
