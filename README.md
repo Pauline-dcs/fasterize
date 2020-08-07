@@ -1,15 +1,17 @@
 # Fasterize exercice 
 
-## Server side 
 
 ## Install
 
     $ git clone https://github.com/Pauline-dcs/fasterize
     $ cd fasterize
+    
+## Server side 
+
+    $ cd server
     $ npm install
 
-
-## Running the project
+## Running the project if you are inside the server 
 
     $ npm run dev
 
@@ -32,6 +34,10 @@
 
 
 ## Client side 
+
+    $ cd ..
+    $ cd client
+    $ npm install
 
 ##This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
  
