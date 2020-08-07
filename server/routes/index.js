@@ -47,7 +47,7 @@ router.get('', (req, res) => {
 			res.status(200).json(await parsedHeaders(resp.headers));
 		})
 		.catch((err) => {
-			console.log(err);
+			// console.log(err);
 			//200 because my request was successfull, the problem is in the other connection
 			res.status(200).json(err);
 		});
