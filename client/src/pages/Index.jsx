@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-// import apiHandler from '../api/apiHandler';
 import '../styles/App.css';
+import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
 	faSquare,
@@ -9,7 +8,8 @@ import {
 	faTimesCircle,
 } from '@fortawesome/free-solid-svg-icons';
 
-function useStickyState(defaultValue, key) {
+//Custom hook
+const useStickyState = (defaultValue, key) => {
 	const [value, setValue] = useState(() => {
 		const stickyValue = window.localStorage.getItem(key);
 		return stickyValue !== null ? JSON.parse(stickyValue) : defaultValue;
@@ -18,15 +18,19 @@ function useStickyState(defaultValue, key) {
 		window.localStorage.setItem(key, JSON.stringify(value));
 	}, [key, value]);
 	return [value, setValue];
-}
+};
 
 const Index = () => {
 	const [apiCalls, setApiCalls] = useStickyState([], 'apiCalls');
 	const [url, setUrl] = useState('');
 	const [errorMessage, setErrorMessage] = useState('');
 
+	// URL validation with regex
+	const expression = /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+	const regex = new RegExp(expression);
+
 	const handleClick = () => {
-		if (!url) {
+		if (!url || !url.match(regex)) {
 			setErrorMessage('*Please enter a valid url');
 		} else {
 			setErrorMessage('');
