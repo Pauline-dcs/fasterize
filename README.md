@@ -1,6 +1,6 @@
 # Fasterize exercice 
 
-# Server side 
+## Server side 
 
 ## Requirements
 
@@ -13,11 +13,9 @@ For development, you will only need Node.js and a node global package, Npm , ins
     $ npm install
 
 
-
-
 ## Running the project
 
-    $ npm start
+    $ npm run dev
 
 ## Simple build for production
 
@@ -25,20 +23,20 @@ For development, you will only need Node.js and a node global package, Npm , ins
     
  ## Dependencies 
 
-	  "axios": "^0.19.2",
-		"dotenv": "^8.2.0",
-		"express": "^4.17.1",
-		"nodemon": "^2.0.4"
+	"axios": "^0.19.2",
+	"dotenv": "^8.2.0",
+	"express": "^4.17.1",
+	"nodemon": "^2.0.4"
     
 ## Dev Dependencies 
     
-    "chai": "^4.2.0",
-		"chai-http": "^4.3.0",
-		"mocha": "^8.1.1"
+    	"chai": "^4.2.0",
+	"chai-http": "^4.3.0",
+ 	"mocha": "^8.1.1"
     
     
 
-# Client side 
+## Client side 
 
 ##This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
  
