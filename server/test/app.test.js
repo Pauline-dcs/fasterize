@@ -8,7 +8,7 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 describe('Valid url , not plugged', () => {
-	it('it should GET an object and return plugged:false', (done) => {
+	it('it should return an object with the key value/pair plugged:false', (done) => {
 		let url = 'https://www.youtube.com/watch?v=5bgemCaaQkU';
 
 		chai
@@ -28,7 +28,7 @@ describe('Valid url , not plugged', () => {
 });
 
 describe('Valid url , plugged', () => {
-	it('it should GET an object with specific fields', (done) => {
+	it('it should return an object with valid values', (done) => {
 		let url = 'https://www.fasterize.com/fr/';
 
 		chai
