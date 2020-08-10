@@ -19,6 +19,11 @@
 
     $ npm build
     
+## Test 
+ 
+    $ npm test
+ 
+    
  ## Dependencies 
 
 	"axios": "^0.19.2",
